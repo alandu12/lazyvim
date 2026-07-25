@@ -17,6 +17,7 @@
 -- t[nore]map     |  -   |  -  |  -  |  -  |  -  |  -  | yes  |  -   |
 -- l[nore]map     |  -   | yes | yes |  -  |  -  |  -  |  -   | yes  |
 
+vim.g.mapleader = " "
 -- Enter insert mode
 vim.keymap.set({ "n", "x" }, "t", "i")
 vim.keymap.set({ "n", "x" }, "T", "I")
@@ -26,6 +27,7 @@ vim.keymap.set({ "n", "x", "o" }, "n", "j")
 vim.keymap.set({ "n", "x", "o" }, "e", "k")
 vim.keymap.set({ "n", "x", "o" }, "i", "l")
 vim.keymap.del("x", "in") -- delete keymap - select child(inner) node
+vim.keymap.del("x", "il") -- delete keymap - insert last textobject
 
 vim.keymap.set({ "n", "x", "o" }, "N", "J")
 vim.keymap.set({ "n", "x", "o" }, "E", "K")
@@ -62,15 +64,19 @@ vim.keymap.set({ "n", "x" }, "<C-s>", "<C-d>")
 vim.keymap.set("n", "<C-[>", "<Esc>")
 vim.keymap.set("n", "<C-[>", vim.cmd.noh)
 vim.keymap.set("n", "E", vim.lsp.buf.hover)
+vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename)
 vim.keymap.set("n", "<space>e", vim.cmd.Ex, { desc = "Open explorer" })
 
 vim.keymap.set("n", "<space>bd", "<cmd>bd<cr>", { desc = "Delete buffer" })
 vim.keymap.set("n", "<space>cf", vim.lsp.buf.format, { desc = "Format code" })
 
-vim.keymap.set("n", "<space>u", vim.cmd.Undotree, { desc = "Toggle undotree" })
+-- replace by snacks
+-- vim.cmd("packadd nvim.undotree")
+-- vim.keymap.set("n", "<space>l", vim.cmd.Undotree, { desc = "Toggle undotree" })
 
 vim.keymap.set({ "i", "s" }, "<C-h>", "<left>")
 vim.keymap.set({ "i", "s" }, "<C-t>", "<right>")
+vim.keymap.set({ "i", "s" }, "<C-f>", "<right>")
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>")
