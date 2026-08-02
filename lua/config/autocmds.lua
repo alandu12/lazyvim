@@ -13,16 +13,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>bd<cr>", { buf = 0 })
   end,
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.spell = false
-    vim.opt_local.textwidth = 80
-    vim.opt_local.wrap = true
-    vim.opt_local.linebreak = true
-    vim.opt_local.colorcolumn = "80"
-    vim.opt_local.conceallevel = 1
-    vim.opt_local.formatoptions:append("m")
-  end,
-})
